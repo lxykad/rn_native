@@ -28,8 +28,12 @@ export default class gank extends Component {
     }
 
     show(){
-        NativeModules.CustomToast.showToast("js调用原生toast消息",1);
-        NativeModules.CustomToast.pageJump();
+        //NativeModules.CustomToast.showToast("js调用原生toast消息",1);
+        //NativeModules.CustomToast.pageJump();
+        //NativeModules.IntentMoudle.startActivityFromJs("com.lxy.hybrid.NativeActivity","传递过去的参数");
+        NativeModules.IntentMoudle.startActivityFromJsGetResult("com.lxy.hybrid.NativeActivity",200,
+        (msg)=>{NativeModules.CustomToast.showToast("返回的数据为: "+msg,1)},
+        (error)=>{NativeModules.CustomToast.showToast("错误信息为: "+error,1)});
     }
 
 }

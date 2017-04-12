@@ -1,7 +1,6 @@
 package com.lxy.hybrid.rnjava;
 
 import android.content.Intent;
-import android.sax.StartElementListener;
 import android.widget.Toast;
 
 import com.facebook.react.bridge.ReactApplicationContext;
