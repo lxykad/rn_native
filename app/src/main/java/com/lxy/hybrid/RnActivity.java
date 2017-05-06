@@ -1,11 +1,9 @@
 package com.lxy.hybrid;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 
 import com.facebook.react.ReactActivity;
-import com.lxy.hybrid.rnjava.ValueUtil;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
@@ -48,12 +46,9 @@ public class RnActivity extends ReactActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getReactNativeHost().getUseDeveloperSupport() && Build.VERSION.SDK_INT >= 23) {
-            // Get permission to show redbox in dev builds.
-            // 弹窗权限判断代码
-
-        }
-        System.out.println("RnActivity============onCreate");
+        String value = getIntent().getStringExtra("value");
+        System.out.println("RnActivity============onCreate=====" + value);
 
     }
+
 }

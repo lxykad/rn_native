@@ -22,7 +22,7 @@ export default class gank extends Component {
                 startInLoadingState={true}
             />*/
 
-            <Text style={{height:100,width:100,backgroundColor:"#39c6c1"}} onPress={()=>{this.show()}}>js1</Text>
+            <Text style={{height:100,width:100,backgroundColor:"#39c6c1"}} onPress={()=>{this.showData()}}>js1</Text>
         );
     }
 
@@ -33,6 +33,18 @@ export default class gank extends Component {
         NativeModules.IntentMoudle.startActivityFromJsGetResult("com.lxy.hybrid.NativeActivity",200,
         (msg)=>{NativeModules.CustomToast.showToast("返回的数据为: "+msg,1)},
         (error)=>{NativeModules.CustomToast.showToast("错误信息为: "+error,1)});
+    }
+
+    showData(){
+        NativeModules.ValueUtil.getValueFromNative((msg)=>{
+
+            NativeModules.CustomToast.showToast("success"+msg,1);
+
+        },
+        (msg)=>{
+            NativeModules.CustomToast.showToast("fail"+msg,1);
+            
+        });
     }
 
 }
