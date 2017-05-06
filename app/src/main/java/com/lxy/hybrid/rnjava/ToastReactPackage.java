@@ -21,6 +21,7 @@ public class ToastReactPackage implements ReactPackage {
         List<NativeModule> modules = new ArrayList<>();
         modules.add(new CustomToast(reactApplicationContext));
         modules.add(new IntentMoudle(reactApplicationContext));
+        modules.add(new ValueUtil(reactApplicationContext));
         return modules;
     }
 

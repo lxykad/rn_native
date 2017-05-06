@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".RnActivity" />
-        <activity android:name=".NativeActivity"></activity>
+        <activity android:name=".NativeActivity"/>
+       <!-- <activity android:name="com.facebook.react.devsupport.DevSettingsActivity"/>-->
     </application>
 
 </manifest>

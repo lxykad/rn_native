@@ -13,8 +13,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void goRnPage(View view){
-        Intent intent = new Intent(MainActivity.this,RnActivity.class);
+    public void goRnPage(View view) {
+        Intent intent = new Intent(MainActivity.this, RnActivity.class);
+        intent.putExtra("value", "page1");
         startActivity(intent);
+    }
+
+    public void goRnPage2(View view) {
+        Intent intent = new Intent(MainActivity.this, RnActivity.class);
+        intent.putExtra("value", "page2");
+        startActivity(intent);
+
     }
 }

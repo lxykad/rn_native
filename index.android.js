@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react';
 import {
     AppRegistry,
@@ -23,7 +22,7 @@ export default class gank extends Component {
                 startInLoadingState={true}
             />*/
 
-            <Text style={{height:100,width:100,backgroundColor:"#39c6c1"}} onPress={()=>{this.show()}}>去原生界面瞅瞅</Text>
+            <Text style={{height:100,width:100,backgroundColor:"#39c6c1"}} onPress={()=>{this.show()}}>js1</Text>
         );
     }
 
