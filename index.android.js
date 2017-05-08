@@ -8,6 +8,8 @@ import {
     NativeModules
 } from 'react-native';
 
+
+
 export default class gank extends Component {
 
 
@@ -15,11 +17,10 @@ export default class gank extends Component {
             super(props)
 
             this.state = {
-                url: '',
-                page:''
+                page:'',
+                loadSuccess: false,
             }
     }
-
 
     //准备加载组件
     componentWillMount(){
@@ -28,19 +29,28 @@ export default class gank extends Component {
         this.test();
 
     }
-
+    
     //在组件第一次绘制之后
     componentDidMount(){
-        console.log("index========componentDidMount");
+        //console.log("index========componentDidMount");
 
     }
 
-
-
     render() {
 
-        var value = "";
+        console.log("index========render");
 
+        if(this.state.page=="page1"){
+            //console.log("index========loadSuccess");
+            return(<Text>page1</Text>);
+        }else if(this.state.page=="page2"){
+            //console.log("index========loadfail");
+            return(<Text>page2</Text>);
+        }else{
+            return null;
+        }
+
+       /*
 
         //异步回调
          NativeModules.ValueUtil.getValueFromNative((msg)=>{
@@ -52,46 +62,12 @@ export default class gank extends Component {
                                 (msg)=>{
                                    // NativeModules.CustomToast.showToast(value,1);
 
-
                         });
 
          //promise
         //this.test();
 
-
-
-        console.log("index========render===="+this.state.page);
-
-         if("page1"== this.state.page){
-            NativeModules.CustomToast.showToast("11111",1);
-
-            return (
-
-                                           <Text style={{height: 100, width: 100, backgroundColor: "#39c6c1"}} onPress={() => {
-                                               this.showData()
-                                           }}>page1</Text>
-                                       );
-
-         }else if("page2"== this.state.page){
-            NativeModules.CustomToast.showToast(value,1);
-            return (
-
-                                           <Text style={{height: 100, width: 100, backgroundColor: "#39c6c1"}} onPress={() => {
-                                               this.showData()
-                                           }}>page2</Text>
-                                       );
-
-         }else{
-
-          return (
-
-                                        <Text style={{height: 100, width: 100, backgroundColor: "#39c6c1"}} onPress={() => {
-                                            this.showData()
-                                        }}>默认</Text>
-                                    );
-
-         }
-
+*/
     }
 
     show(){
@@ -119,17 +95,22 @@ export default class gank extends Component {
     async test() {
       try {
 
-        this.state.page = await NativeModules.ValueUtil.getValueFromNativePromise();
+        page = await NativeModules.ValueUtil.getValueFromNativePromise();
 
-        NativeModules.CustomToast.showToast(this.state.page+"",1);
+        //NativeModules.CustomToast.showToast(this.state.page+"",1);
 
         console.log("index========test==="+this.state.page);
+        this.setState({
+                            loadSuccess: true,
+                            page:page,
+        })
 
 
       } catch (e) {
         console.error(e);
       }
     }
+
 
 }
 
