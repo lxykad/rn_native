@@ -47,7 +47,6 @@ public class RnActivity extends ReactActivity {
         super.onCreate(savedInstanceState);
 
         String value = getIntent().getStringExtra("value");
-        System.out.println("RnActivity============onCreate=====" + value);
 
     }
 
