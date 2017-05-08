@@ -8,7 +8,7 @@ import {
     NativeModules
 } from 'react-native';
 
-
+import Detail from './js/Detail';
 
 export default class gank extends Component {
 
@@ -29,7 +29,7 @@ export default class gank extends Component {
         this.test();
 
     }
-    
+
     //在组件第一次绘制之后
     componentDidMount(){
         //console.log("index========componentDidMount");
@@ -42,7 +42,8 @@ export default class gank extends Component {
 
         if(this.state.page=="page1"){
             //console.log("index========loadSuccess");
-            return(<Text>page1</Text>);
+            return(<Detail/>);
+
         }else if(this.state.page=="page2"){
             //console.log("index========loadfail");
             return(<Text>page2</Text>);
